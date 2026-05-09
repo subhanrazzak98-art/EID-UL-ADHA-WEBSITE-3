@@ -1,0 +1,636 @@
+/* ==== Google Fonts ====
+   - Amiri: Arabic/headings
+   - Cinzel: Titles
+   - Nunito: Body
+========================*/
+
+/* === Theme Colors === */
+:root {
+  --deep-green: #1A3D2B;
+  --gold: #C9A84C;
+  --cream: #FBF7EE;
+  --footer-dark: #13281D;
+  --border-gold: 2px solid var(--gold);
+}
+
+/* === Base === */
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Nunito', Arial, sans-serif;
+  background: var(--cream);
+  color: var(--deep-green);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.section { padding: 56px 8vw; position: relative; z-index: 1; }
+
+@media (max-width: 600px) {
+  .section { padding: 40px 4vw; }
+}
+
+/* === Navbar === */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--deep-green);
+  color: var(--gold);
+  position: sticky;
+  top: 0; z-index: 100;
+  padding: 0 3vw;
+  height: 56px;
+  box-shadow: 0 4px 32px 0 rgba(26, 61, 43, 0.04);
+}
+.navbar__brand { display: flex; align-items: center; gap: 8px; }
+.navbar__logo { font-size: 1.4em; }
+.navbar__title { font-family: 'Cinzel', serif; font-size: 1.12em; letter-spacing: 0.5px; font-weight: 700; }
+.navbar__links {
+  display: flex; gap: 28px;
+  list-style: none;
+  margin: 0; padding: 0;
+  align-items: center;
+}
+.navbar__links a {
+  color: var(--gold);
+  font-family: 'Nunito', sans-serif;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 4px 0;
+  position: relative;
+  transition: color 0.14s;
+}
+.navbar__links a.active, .navbar__links a:hover {
+  color: var(--cream);
+}
+.navbar__hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+}
+.navbar__hamburger span {
+  display: block;
+  width: 24px; height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.navbar__spacer { height: 56px; }
+
+@media (max-width: 900px) {
+  .navbar__links {
+    position: fixed;
+    top: 56px; left: 0;
+    width: 100vw;
+    flex-direction: column;
+    background: var(--deep-green);
+    padding: 22px 0 10px;
+    display: none;
+    box-shadow: 0 8px 32px 0 rgba(26, 61, 43, 0.09);
+    z-index: 1000;
+  }
+  .navbar__links.open { display: flex; }
+  .navbar__hamburger { display: flex; }
+}
+
+/* === Hero === */
+.hero {
+  background: linear-gradient(120deg, var(--deep-green) 62%, var(--cream) 100%);
+  color: var(--cream);
+  padding-top: 48px;
+  min-height: 82vh;
+  position: relative;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+}
+
+.hero__stars {
+  position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 0;
+  pointer-events: none;
+}
+.hero__content {
+  position: relative; z-index: 2;
+  max-width: 620px;
+  margin-left: 4vw;
+  margin-top: 32px;
+}
+.crescent-wrapper {
+  width: 74px; height: 74px;
+  margin-bottom: 19px;
+}
+.crescent-moon {
+  width: 75px; height: 75px;
+  box-shadow: -12px 5px 0 0 var(--gold);
+  border-radius: 50%;
+  background: none;
+  position: relative;
+}
+.crescent-moon::before {
+  content: '';
+  position: absolute;
+  width: 68px; height: 68px;
+  background: var(--deep-green);
+  border-radius: 50%;
+  left: 12px; top: 5px;
+}
+
+.hero__arabic {
+  font-family: 'Amiri', serif;
+  font-size: 2.05em; font-weight: bold;
+  margin: 0 0 2px 0;
+  letter-spacing: 1px;
+  direction: rtl;
+}
+.hero__title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6em;
+  font-weight: 700;
+  margin: 0 0 22px 0;
+  letter-spacing: 2px;
+}
+.hero__countdown {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1em;
+  color: var(--gold);
+  background: rgba(10,33,25,0.2);
+  border-radius: 24px;
+  display: flex; gap:12px; align-items: center; padding: 10px 15px; margin-bottom:20px;
+  box-shadow: 0 2px 24px 0 rgba(26,61,43,0.07);
+}
+.hero__countdown span strong { font-size: 1.3em; color: var(--cream); }
+
+.hero__cta {
+  display: flex; gap: 18px; margin-top: 8px;
+}
+.btn {
+  border: none;
+  padding: 10px 26px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1em;
+  border-radius: 48px;
+  text-decoration: none;
+  margin: 3px 0;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 10px 0 rgba(26,61,43,0.11);
+  transition: background 0.15s, color 0.15s;
+  display: inline-block;
+}
+.btn-gold {
+  color: var(--deep-green);
+  background: var(--gold);
+  border: 2px solid var(--gold);
+}
+.btn-outline {
+  color: var(--gold); background: transparent;
+  border: 2px solid var(--gold);
+}
+
+.btn-gold:hover, .btn-outline:hover {
+  background: var(--deep-green); color: var(--gold);
+  border-color: var(--gold);
+}
+
+@media (max-width: 700px) {
+  .hero__content { margin: 0; }
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 30px 2vw 12vw 2vw;}
+  .hero__content { margin-left:0;}
+  .crescent-wrapper { margin-bottom:7px;}
+}
+
+/* === Gold Divider === */
+.divider, .divider--center {
+  width: 100%; height: 1.5px; margin: 36px 0;
+  border: none; outline: none;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--gold),
+    var(--gold) 10px,
+    transparent 10px,
+    transparent 24px
+   );
+  opacity: 0.7;
+}
+.divider--center { margin: 36px auto 36px auto; max-width: 400px; }
+
+/* === About Preview === */
+.about-preview__grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 40px; align-items: center;
+}
+.about-preview__img, .about__img {
+  width: 100%; max-width: 400px;
+  border-radius: 18px;
+  border: var(--border-gold);
+  background: #e2dccc;
+  box-shadow: 0 0 12px 0 rgba(26,61,43,0.08);
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  color: var(--deep-green);
+  font-weight: 700;
+  font-size: 2em;
+  letter-spacing: 2px;
+  margin-bottom: 13px;
+}
+
+@media (max-width: 900px) {
+  .about-preview__grid, .about__content {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .about__img { margin-bottom: 16px; }
+}
+
+/* === Rituals Preview & Rituals === */
+.rituals-preview__cards, .rituals__grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 28px;
+  margin-top: 17px; margin-bottom: 6px;
+}
+.ritual-card {
+  background: rgba(201,168,76,0.08);
+  padding: 23px 10px 16px 10px;
+  text-align: center;
+  border-radius: 16px;
+  border: 2px solid var(--gold);
+  box-shadow: 0 2px 12px 0 rgba(26,61,43,0.06);
+  transition: box-shadow 0.22s;
+}
+.ritual-card__icon {
+  font-size: 2.3em; margin-bottom: 9px;
+}
+.ritual-card h4 { margin: 0 0 6px 0; font-family: 'Cinzel', serif; }
+.ritual-card p { margin: 0; font-size: 1em; font-family: 'Nunito', sans-serif; color:#1a3d2bb8;}
+
+@media (max-width: 780px) {
+  .rituals-preview__cards, .rituals__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 520px) {
+  .rituals-preview__cards, .rituals__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Duas Preview & Duas === */
+.duas-preview__cards, .duas__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 6px;
+}
+.dua-card {
+  background: var(--gold);
+  color: var(--deep-green);
+  border-radius: 13px;
+  padding: 15px 14px 8px 14px;
+  box-shadow:0 2px 14px rgba(201,168,76,0.14);
+}
+.dua-card__arabic {
+  font-family: 'Amiri', serif;
+  font-size: 1.32em;
+  margin-bottom: 7px;
+}
+.dua-card__transliteration {
+  font-size: 1em; color: #5d5130; font-style: italic; margin-bottom: 2px;
+}
+.dua-card__translation {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1em;
+  color: var(--deep-green);
+}
+
+@media (max-width: 640px) {
+  .duas-preview__cards, .duas__wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Stats === */
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 23px;
+}
+.stat-card {
+  background: var(--deep-green);
+  color: var(--gold);
+  padding: 25px 6px 12px;
+  text-align: center;
+  border-radius: 13px;
+  box-shadow: 0 1px 12px rgba(26,61,43,0.10);
+}
+.stat-card__value {
+  font-family: 'Cinzel', serif;
+  font-size: 2.1em;
+  color: var(--gold);
+  margin-bottom: 3px;
+}
+.stat-card__label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.02em;
+  color: #ffefb4c6;
+}
+
+@media (max-width: 700px){
+  .stats__grid { grid-template-columns: 1fr 1fr;}
+}
+@media (max-width: 400px){
+  .stats__grid { grid-template-columns: 1fr;}
+}
+
+/* === Gallery Preview & Gallery === */
+.gallery-preview__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 13px;
+  margin-top: 16px;
+}
+.gallery-preview__item, .gallery__item {
+  background: var(--deep-green);
+  color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.2em;
+  border-radius: 13px;
+  min-height: 80px;
+  box-shadow: 0 1px 8px rgba(26,61,43,0.13);
+  border: 2px solid var(--gold);
+  margin: 0;
+  transition: transform 0.17s;
+  position:relative;
+}
+.gallery-preview__item--featured {
+  grid-row: span 2;
+  font-size: 3em;
+  min-height: 170px;
+}
+.gallery-preview__item span, .gallery__item span {
+  font-size: 0.54em;
+  position: absolute; bottom: 8px; right: 14px; color: #C9A84C;
+}
+
+@media (max-width: 700px) {
+  .gallery-preview__grid, .gallery__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gallery-preview__item--featured { min-height: 110px;}
+}
+@media (max-width: 500px) {
+  .gallery-preview__grid, .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-preview__item--featured { min-height: 76px;}
+}
+
+/* === Greeting Generator === */
+.greeting-gen__form {
+  background: rgba(26,61,43,0.07);
+  border: 2px solid var(--gold);
+  border-radius: 13px;
+  padding: 28px 19px 15px 19px;
+  max-width: 415px; margin: 0 auto 16px auto;
+  display: flex; flex-direction: column; gap:9px;
+  font-size: 1.06em;
+}
+.greeting-gen__form label { font-weight: bold;}
+.greeting-gen__form input, .greeting-gen__form select {
+  padding: 7px 9px; border-radius: 6px; border: 1.7px solid var(--gold);
+  font-family: 'Nunito', sans-serif;
+  font-size: 1em; background: #fff;
+}
+.greeting-gen__result {
+  margin-top: 18px; display: flex; justify-content: center;
+}
+.greeting-card-anim {
+  background: var(--gold);
+  color: var(--deep-green);
+  border-radius: 18px;
+  border: 2.3px solid var(--deep-green);
+  padding: 32px 24px 24px 24px;
+  min-width: 290px; max-width: 375px;
+  box-shadow: 0 2px 24px rgba(201,168,76,0.19);
+  display: flex; flex-direction: column; align-items: center;
+  position: relative;
+  animation: greetingCardPop 0.72s cubic-bezier(0.68,-0.08,0.26,1.44);
+}
+@keyframes greetingCardPop {
+  0% { opacity:0; transform: scale(0.75);}
+  60% { opacity:1; transform: scale(1.13);}
+  100%{ opacity:1; transform: scale(1);}
+}
+
+.greeting-anim-moon {
+  width: 59px; height: 59px;
+  margin-bottom: 6px;
+  border-radius: 50%;
+  box-shadow: -7px 0 0 0 var(--deep-green);
+  background: none; position: relative;
+}
+.greeting-anim-moon::before {
+  content: '';
+  position: absolute;
+  width: 51px; height: 51px;
+  left: 7px; top:0;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.greeting-card__arabic {
+  font-family: 'Amiri', serif;
+  font-size: 1.3em;
+  direction: rtl; text-align: right;
+  margin-bottom: 8px;
+}
+.greeting-card__english {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.05em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#copyGreeting { margin-top: 6px; }
+
+/* === Footer === */
+.footer {
+  background: var(--footer-dark);
+  color: #d9bf78;
+  padding: 38px 8vw 0 8vw;
+  margin-top: 54px;
+  border-top: 3px solid var(--gold);
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 54px;
+  margin-bottom:10px;
+}
+.footer h4 { font-family: 'Cinzel', serif; color: var(--gold);}
+.footer__brand { font-size: 1.21em;}
+.footer ul { list-style: none; padding: 0; margin:0;}
+.footer li { margin-bottom: 3px;}
+.footer a { color: #f5eec3; text-decoration:none;}
+.footer a:hover { color: var(--gold);}
+.footer__arabic {
+  font-family: 'Amiri', serif;
+  font-size: 1.22em;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+.footer__signoff {
+  border-top: 2px solid var(--gold);
+  margin-top: 18px; padding: 6px 0 11px 0; text-align: center;
+}
+
+@media (max-width: 700px){
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+}
+@media (max-width: 550px){
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* === Scroll-to-top === */
+.scroll-top {
+  position: fixed;
+  bottom:35px; right: 23px;
+  z-index: 99;
+  background: var(--gold);
+  color: var(--deep-green);
+  border: none;
+  border-radius: 50%;
+  width: 41px; height: 41px;
+  font-size: 1.5em;
+  box-shadow: 0 2px 18px 0 rgba(201,168,76,0.10);
+  cursor: pointer;
+  display: none;
+  opacity: 0.95;
+  transition: background 0.2s, color 0.2s;
+}
+.scroll-top:hover { background: var(--deep-green); color: var(--gold);}
+
+/* === General Responsive Fixes === */
+@media (max-width: 485px) {
+  .section-title { font-size: 1.18em; }
+  .greeting-card-anim { min-width: 180px; padding: 18px 4px;}
+}
+
+@media (max-width: 340px) {
+  .footer__signoff, .footer__arabic { font-size: 0.95em;}
+}
+
+/* === Scroll Reveal Animation === */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.65s cubic-bezier(0.25,0.1,0.34,1.04), transform 0.85s cubic-bezier(0.25,0.1,0.34,1.04);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* === Simple Geometric Pattern Overlay (Optional) === */
+/* Add this to body if you want a light pattern:
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0; z-index: 0;
+  background: url('https://www.toptal.com/designers/subtlepatterns/patterns/symphony.png'); opacity: 0.06;
+  pointer-events: none;
+}
+*/
+@media (max-width: 500px) {
+  body, .section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    font-size: 0.97em;
+  }
+  .section {
+    padding: 30px 2vw !important;
+  }
+  .navbar {
+    padding: 0 1vw;
+    height: 52px;
+  }
+  .navbar__title {
+    font-size: 0.97em;
+  }
+  .navbar__spacer {
+    height: 52px;
+  }
+  .navbar__links {
+    padding-top: 9px;
+    padding-bottom: 3px;
+  }
+  .footer {
+    padding: 28px 2vw 0 2vw;
+  }
+  .footer__grid {
+    gap: 12px;
+  }
+  .about-preview__grid,
+  .about__content {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .about-preview__img, .about__img {
+    max-width: 96vw;
+    border-radius: 8px;
+    margin: 0 auto 10px auto;
+  }
+  .rituals-preview__cards,
+  .rituals__grid,
+  .gallery-preview__grid,
+  .gallery__grid,
+  .duas-preview__cards,
+  .duas__wrapper,
+  .stats__grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .gallery-preview__item--featured,
+  .gallery__item--wide {
+    min-height: 64px !important;
+    font-size: 2em !important;
+  }
+  .btn, .btn-gold, .btn-outline {
+    padding: 9px 20px;
+    font-size: 1em;
+  }
+  .greeting-gen__form {
+    padding: 18px 7px 12px 7px;
+  }
+  .greeting-card-anim {
+    min-width: 130px;
+    padding: 12px 3px;
+  }
+  .section-title {
+    font-size: 1.08em !important;
+    text-align: center;
+  }
+  .hero__arabic,
+  .hero__title {
+    font-size: 1.08em !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 340px) {
+  .footer__signoff, .footer__arabic { font-size: 0.88em;}
+  .section-title {
+    font-size: 0.97em !important;
+  }
+}
